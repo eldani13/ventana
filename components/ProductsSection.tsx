@@ -1,122 +1,191 @@
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
+import Image from "next/image";
+
+import imgEurofine from "../images/image_eurofine58.webp";
+import imgKommerling from "../images/image_kommerling76_1.webp";
+import imgPremidoor from "../images/image_premidoor76.webp";
+import imgPremiline from "../images/image_premiline58.webp";
+
+import productEurofine from "../images/image_productEurofine.webp";
+import productKommerling from "../images/image_productKommerling.webp";
+import productPremidoor from "../images/image_productPremidoor.webp";
+import productPremiline from "../images/image_productPremiline.webp";
 
 const products = [
-  {
-    id: "abatibles",
-    name: "Ventanas Abatibles",
-    description: "Apertura clásica con excelente hermeticidad y aislamiento. Ideales para espacios que requieren ventilación controlada.",
-    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-    features: [
-      "Apertura hacia interior o exterior",
-      "Excelente sellado hermético",
-      "Fácil limpieza desde el interior",
-      "Mayor seguridad",
-    ],
-    priceFrom: "5,000",
-  },
-  {
-    id: "correderas",
-    name: "Ventanas Correderas",
-    description: "Sistema de deslizamiento que ahorra espacio. Perfectas para balcones y áreas reducidas con acceso a terrazas.",
-    image: "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg?auto=compress&cs=tinysrgb&w=800",
-    features: [
-      "Ahorro de espacio",
-      "Deslizamiento suave",
-      "Ideal para áreas amplias",
-      "Fácil operación",
-    ],
-    priceFrom: "4,500",
-  },
-  {
-    id: "panoramicas",
-    name: "Ventanas Panorámicas",
-    description: "Amplias superficies de vidrio para máxima entrada de luz natural. Transforman espacios con vistas espectaculares.",
-    image: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=800",
-    features: [
-      "Vista sin obstáculos",
-      "Máxima luminosidad",
-      "Diseño minimalista",
-      "Integración arquitectónica",
-    ],
-    priceFrom: "8,000",
-  },
-  {
-    id: "aislantes",
-    name: "Ventanas Aislantes",
-    description: "Triple acristalamiento y perfiles reforzados. Máximo aislamiento térmico y acústico para confort superior.",
-    image: "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
-    features: [
-      "Triple acristalamiento",
-      "Reducción de ruido hasta 45 dB",
-      "Ahorro energético hasta 40%",
-      "Vidrio bajo emisivo",
-    ],
-    priceFrom: "7,500",
-  },
+    {
+        id: "EuroFine58",
+        name: "Ventanas EuroFine58",
+        description: "Sistema de ventana de 58 mm versátil y eficiente, diseñado para alto aislamiento, evacuación de agua optimizada, compatibilidad con múltiples tipos de vidrio y herrajes, y disponible en acabados ecológicos y decorativos.",
+        image: productEurofine,
+        features: [
+            "Aislamiento térmico eficiente",
+            "Apertura interior y exterior",
+            "Opciones decorativas en colores foliados",
+            "Material ecológico y reciclable",
+        ],
+        model: imgEurofine,
+    },
+    {
+        id: "Kömmerling 76",
+        name: "Ventanas Kömmerling 76 AD Xtrem",
+        description: "Sistema de ventana moderno de 76 mm, con buen aislamiento, estructura robusta, diseño funcional y materiales sostenibles.",
+        image: productKommerling,
+        features: [
+            "Diseño moderno y estético",
+            "Estructura robusta con refuerzo interno",
+            "Ideal para zonas con alta exigencia térmica y acústica.",
+            "Fácil mantenimiento gracias a sus acabados coextrusionados.",
+        ],
+        model: imgKommerling,
+    },
+    {
+        id: "PREMIDOOR76",
+        name: "Ventanas PREMIDOOR76",
+        description: "Sistema de puerta corredera de alto rendimiento de 179 mm, con excelente aislamiento térmico, estructura robusta, gran capacidad de acristalamiento, protección antirrobo y opciones sostenibles y decorativas.",
+        image: productPremidoor,
+        features: [
+            "Marco de gran dimensión con 5 cámaras de aire",
+            "Protección antirrobo hasta clase RC2",
+            "Conveniente en espacios que requieren accesibilidad universal.",
+            "Accesibilidad para personas con movilidad reducida",
+        ],
+        model: imgPremidoor,
+    },
+    {
+        id: "PremiLine58",
+        name: "Ventanas PremiLine58",
+        description: "Sistema de ventana corredera de 58 mm, con diseño esbelto, buena entrada de luz, aislamiento básico, estructura funcional y opciones sostenibles y decorativas.",
+        image: productPremiline,
+        features: [
+            "Ideal para espacios que requieren buena entrada de luz natural.",
+            "Rodamientos de alta calidad para deslizamiento suave",
+            "Compatibilidad con vidrios de 4–6 mm y 18–20 mm",
+            "Apto para puertas correderas de uso residencial.",
+        ],
+        model: imgPremiline,
+    },
 ];
 
 export default function ProductsSection() {
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-            Nuestras Soluciones
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ventanas diseñadas con tecnología de última generación para cada necesidad.
-            Calidad, diseño y eficiencia energética garantizada.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {products.map((product) => (
-            <Card key={product.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full font-semibold">
-                  Desde ${product.priceFrom}
+    return (
+        <section className="py-16 md:py-24 bg-white">
+            <div className="container mx-auto px-4 md:px-6 lg:px-8">
+                {/* Header */}
+                <div className="text-center mb-16 md:mb-20">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#4a4a49] mb-4">
+                        Nuestras Soluciones
+                    </h2>
+                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                        Ventanas diseñadas con tecnología de última generación para cada necesidad.
+                        Calidad, diseño y eficiencia energética garantizada.
+                    </p>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">{product.name}</h3>
-                <p className="text-gray-600 mb-6">{product.description}</p>
 
-                <div className="space-y-2 mb-6">
-                  {product.features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <div className="bg-green-100 rounded-full p-1">
-                        <Check className="h-4 w-4 text-green-600" />
-                      </div>
-                      <span className="text-gray-700">{feature}</span>
+                {/* Products */}
+                <div className="space-y-12 md:space-y-20">
+                    {products.map((product, index) => {
+                        const isEven = index % 2 === 0;
+
+                        return (
+                            <div
+                                key={product.id}
+                                className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+                                    } gap-0 md:gap-8 lg:gap-12 items-center`}
+                            >
+                                {/* Image */}
+                                <div className="w-full md:w-1/2 relative overflow-hidden group">
+                                    <div className="aspect-[4/3] md:aspect-[3/2] relative">
+                                        <Image
+                                            src={product.image}
+                                            alt={product.name}
+                                            width={800}
+                                            height={600}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </div>
+                                    {/* Model */}
+                                    <div className="absolute top-6 right-6 w-20 h-20 bg-white rounded shadow-md">
+                                        <Image
+                                            src={product.model}
+                                            alt="Etiqueta decorativa de producto"
+                                            className="w-full h-full object-contain"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Content */}
+                                <div className="w-full md:w-1/2 px-4 md:px-0 py-8 md:py-0">
+                                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#4a4a49] mb-4">
+                                        {product.name}
+                                    </h3>
+
+                                    <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
+                                        {product.description}
+                                    </p>
+
+                                    {/* Features */}
+                                    <div className="space-y-3 mb-8">
+                                        {product.features.map((feature, idx) => (
+                                            <div key={idx} className="flex items-start gap-3">
+                                                <div className="bg-[#e0f0fb] rounded-full p-1 mt-0.5 flex-shrink-0">
+                                                    <Check className="h-4 w-4 text-[#0b72ba]" />
+                                                </div>
+
+                                                <span className="text-gray-700 text-sm md:text-base">
+                                                    {feature}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Button */}
+                                    <Button
+                                        className="bg-[#f25d21] hover:bg-[#d94d18] text-white px-8 py-6 text-base font-semibold group transition-all duration-300 shadow-md hover:shadow-lg"
+                                    >
+                                        <a
+                                            href="#configurador"
+                                            className="flex items-center gap-2"
+                                        >
+                                            Ver Más
+                                            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                                        </a>
+                                    </Button>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {/* CTA Section */}
+                <div className="text-center mt-16 md:mt-24 pt-12 md:pt-16 border-t border-gray-200">
+                    <p className="text-gray-600 text-lg mb-6">
+                        ¿No encuentras lo que buscas?
+                    </p>
+
+                    {/* Botones en línea */}
+                    <div className="flex justify-center gap-4 flex-wrap">
+                        {/* Botón existente */}
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            className="border-2 border-gray-300 hover:border-[#f25d21] hover:text-[#f25d21] text-gray-700 px-8 py-6 text-base font-semibold transition-all duration-300"
+                        >
+                            <a href="#cotizacion">Solicita una Asesoría Personalizada</a>
+                        </Button>
+
+                        {/* Nuevo botón */}
+                        <Button
+                            size="lg"
+                            className="bg-[#f25d21] hover:bg-[#d94d18] text-white px-8 py-6 text-base font-semibold transition-all duration-300 shadow-md hover:shadow-lg"
+                        >
+                            <a href="#recursos">Ver Más Recursos</a>
+                        </Button>
                     </div>
-                  ))}
                 </div>
 
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 group">
-                  <a href="#configurador" className="flex items-center gap-2">
-                    Configurar Ahora
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </Button>
-              </div>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <p className="text-gray-600 mb-4">¿No encuentras lo que buscas?</p>
-          <Button variant="outline" size="lg">
-            <a href="#cotizacion">Solicita una Asesoría Personalizada</a>
-          </Button>
-        </div>
-      </div>
-    </section>
-  );
+            </div>
+        </section>
+    );
 }
