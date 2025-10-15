@@ -1,55 +1,42 @@
 import { Shield, Leaf, DollarSign, Wrench, Award, Clock } from "lucide-react";
 import Image from "next/image";
 
-import imageSeguridad from "../images/image_seguridad.jpg";
-import imageSostenibilidad from "../images/image_sostenibilidad.jpg";
-import imageAhorro from "../images/image_ahorro.jpg";
-import imageMantenimiento from "../images/image_mantenimiento.jpg";
-import imageGarantia from "../images/image_garantia.png";
-import imageInstalacion from "../images/image_instalacion.jpg";
-
 const benefits = [
     {
         icon: Shield,
         title: "Seguridad Garantizada",
         description: "Cerraduras multipunto y vidrio de seguridad. Protección total para tu hogar.",
-        // image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-        image: imageSeguridad
+        image: "/images-benefitsSection/image_seguridad.webp"
     },
     {
         icon: Leaf,
         title: "Sostenibilidad",
         description: "Materiales reciclables y procesos eco-friendly. Reducción de huella de carbono.",
-        // image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=300&fit=crop",
-        image: imageSostenibilidad
+        image: "/images-benefitsSection/image_sostenibilidad.webp"
     },
     {
         icon: DollarSign,
         title: "Ahorro Energético",
         description: "Hasta 40% menos en costos de climatización. Inversión que se paga sola.",
-        // image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop",
-        image: imageAhorro
+        image: "/images-benefitsSection/image_ahorro.webp"
     },
     {
         icon: Wrench,
         title: "Fácil Mantenimiento",
         description: "Materiales resistentes que no requieren pintura ni mantenimiento frecuente.",
-        // image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400&h=300&fit=crop",
-        image: imageMantenimiento
+        image: "/images-benefitsSection/image_mantenimiento.webp"
     },
     {
         icon: Award,
         title: "Garantía 10 Años",
         description: "Respaldamos la calidad de nuestros productos con garantía extendida.",
-        // image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop",
-        image: imageGarantia
+        image: "/images-benefitsSection/image_garantia.webp"
     },
     {
         icon: Clock,
         title: "Instalación Rápida",
         description: "Equipo profesional certificado. Instalación en menos de 24 horas.",
-        // image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop",
-        image: imageInstalacion
+        image: "/images-benefitsSection/image_instalacion.webp"
     },
 ];
 
@@ -86,13 +73,8 @@ export default function BenefitsSection() {
 
                                 {/* Imagen de fondo con degradado */}
                                 <div className="absolute top-0 right-0 w-2/3 h-full">
-                                    {/* <img
-                                        src={benefit.image || "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400"}
-                                        className="w-full h-full object-cover opacity-50 group-hover:opacity-30 transition-opacity duration-300"
-                                    /> */}
                                     <Image
-                                        src={benefit.image}
-                                        alt=""
+                                        src={benefit.image} alt="" width={0} height={0}
                                         className="w-full h-full object-cover opacity-50 group-hover:opacity-30 transition-opacity duration-300"
                                     />
                                     {/* Degradado de izquierda a derecha */}

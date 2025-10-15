@@ -2,68 +2,58 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import Image from "next/image";
 
-import imgEurofine from "../images/image_eurofine58.webp";
-import imgKommerling from "../images/image_kommerling76_1.webp";
-import imgPremidoor from "../images/image_premidoor76.webp";
-import imgPremiline from "../images/image_premiline58.webp";
-
-import productEurofine from "../images/image_productEurofine.webp";
-import productKommerling from "../images/image_productKommerling.webp";
-import productPremidoor from "../images/image_productPremidoor.webp";
-import productPremiline from "../images/image_productPremiline.webp";
-
 const products = [
     {
         id: "EuroFine58",
         name: "Ventanas EuroFine58",
         description: "Sistema de ventana de 58 mm versátil y eficiente, diseñado para alto aislamiento, evacuación de agua optimizada, compatibilidad con múltiples tipos de vidrio y herrajes, y disponible en acabados ecológicos y decorativos.",
-        image: productEurofine,
+        image: "/images-productsSection/image_productEurofine.webp",
         features: [
             "Aislamiento térmico eficiente",
             "Apertura interior y exterior",
             "Opciones decorativas en colores foliados",
             "Material ecológico y reciclable",
         ],
-        model: imgEurofine,
+        model: "/images-productsSection/image_eurofine58.webp",
     },
     {
         id: "Kömmerling 76",
         name: "Ventanas Kömmerling 76 AD Xtrem",
         description: "Sistema de ventana moderno de 76 mm, con buen aislamiento, estructura robusta, diseño funcional y materiales sostenibles.",
-        image: productKommerling,
+        image: "/images-productsSection/image_productKommerling.webp",
         features: [
             "Diseño moderno y estético",
             "Estructura robusta con refuerzo interno",
             "Ideal para zonas con alta exigencia térmica y acústica.",
             "Fácil mantenimiento gracias a sus acabados coextrusionados.",
         ],
-        model: imgKommerling,
+        model: "/images-productsSection/image_kommerling76_1.webp",
     },
     {
         id: "PREMIDOOR76",
         name: "Ventanas PREMIDOOR76",
         description: "Sistema de puerta corredera de alto rendimiento de 179 mm, con excelente aislamiento térmico, estructura robusta, gran capacidad de acristalamiento, protección antirrobo y opciones sostenibles y decorativas.",
-        image: productPremidoor,
+        image: "/images-productsSection/image_productPremidoor.webp",
         features: [
             "Marco de gran dimensión con 5 cámaras de aire",
             "Protección antirrobo hasta clase RC2",
             "Conveniente en espacios que requieren accesibilidad universal.",
             "Accesibilidad para personas con movilidad reducida",
         ],
-        model: imgPremidoor,
+        model: "/images-productsSection/image_premidoor76.webp",
     },
     {
         id: "PremiLine58",
         name: "Ventanas PremiLine58",
         description: "Sistema de ventana corredera de 58 mm, con diseño esbelto, buena entrada de luz, aislamiento básico, estructura funcional y opciones sostenibles y decorativas.",
-        image: productPremiline,
+        image: "/images-productsSection/image_productPremiline.webp",
         features: [
             "Ideal para espacios que requieren buena entrada de luz natural.",
             "Rodamientos de alta calidad para deslizamiento suave",
             "Compatibilidad con vidrios de 4–6 mm y 18–20 mm",
             "Apto para puertas correderas de uso residencial.",
         ],
-        model: imgPremiline,
+        model: "/images-productsSection/image_premiline58.webp",
     },
 ];
 
@@ -97,10 +87,7 @@ export default function ProductsSection() {
                                 <div className="w-full md:w-1/2 relative overflow-hidden group">
                                     <div className="aspect-[4/3] md:aspect-[3/2] relative">
                                         <Image
-                                            src={product.image}
-                                            alt={product.name}
-                                            width={800}
-                                            height={600}
+                                            src={product.image} alt={product.name} width={800} height={600}
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -108,8 +95,7 @@ export default function ProductsSection() {
                                     {/* Model */}
                                     <div className="absolute top-6 right-6 w-20 h-20 bg-white rounded shadow-md">
                                         <Image
-                                            src={product.model}
-                                            alt="Etiqueta decorativa de producto"
+                                            src={product.model} alt="Etiqueta decorativa de producto" width={0} height={0}
                                             className="w-full h-full object-contain"
                                         />
                                     </div>

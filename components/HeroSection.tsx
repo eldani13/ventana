@@ -4,23 +4,14 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Thermometer, Volume2, ChevronLeft, ChevronRight } from "lucide-react";
 
-import imageBackground1 from "../images/image_background_1.png";
-import imageBackground2 from "../images/image_background_2.jpg";
-import imageBackground3 from "../images/image_background_3.png";
-import imageBackground4 from "../images/image_background_4.jpg";
-
 export default function HeroSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
-        // "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1920",
-        // "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1920",
-        // "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1920",
-        // "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920"
-        imageBackground3.src,
-        imageBackground1.src,
-        imageBackground4.src,
-        imageBackground2.src
+        "/images-heroSection/image_background_1.webp",
+        "/images-heroSection/image_background_2.webp",
+        "/images-heroSection/image_background_3.webp",
+        "/images-heroSection/image_background_4.webp"
     ];
 
     useEffect(() => {
@@ -46,9 +37,8 @@ export default function HeroSection() {
                 {slides.map((slide, index) => (
                     <div
                         key={index}
-                        className={`absolute inset-0 transition-opacity duration-1000 ${
-                            index === currentSlide ? "opacity-100" : "opacity-0"
-                        }`}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+                            }`}
                         style={{
                             backgroundImage: `url('${slide}')`,
                             backgroundSize: "cover",
@@ -82,11 +72,10 @@ export default function HeroSection() {
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                            index === currentSlide
+                        className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide
                                 ? "w-8 bg-[#f25d21]"
                                 : "w-2 bg-white/50 hover:bg-white/70"
-                        }`}
+                            }`}
                         aria-label={`Ir a imagen ${index + 1}`}
                     />
                 ))}
@@ -104,8 +93,8 @@ export default function HeroSection() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
-                        <Button 
-                            size="lg" 
+                        <Button
+                            size="lg"
                             className="bg-[#f25d21] hover:bg-[#d94d18] text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                         >
                             <a href="#configurador" className="flex items-center justify-center gap-2 w-full">
@@ -113,9 +102,9 @@ export default function HeroSection() {
                                 <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                             </a>
                         </Button>
-                        <Button 
-                            size="lg" 
-                            variant="outline" 
+                        <Button
+                            size="lg"
+                            variant="outline"
                             className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#4a4a49] text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                         >
                             <a href="#cotizacion" className="w-full">Solicitar Cotización</a>
