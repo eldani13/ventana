@@ -13,10 +13,8 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-      {/* Barra superior de contacto */}
       <div className="bg-[#2b91cf] text-white text-xs sm:text-sm">
         <div className="w-full flex flex-row items-center justify-between px-4 sm:px-8 py-2 text-white text-base font-semibold tracking-tight gap-2 sm:gap-0">
-          {/* Mobile: only show lupa, profesionales, particulares */}
           <div className="flex flex-row items-center gap-4 w-full sm:hidden">
             <button className="flex items-center group">
               <span className="relative">
@@ -48,7 +46,6 @@ export default function Navbar() {
               Particulares
             </a>
           </div>
-          {/* Desktop: original layout */}
           <div className="hidden sm:flex w-full items-center justify-between">
             <div className="flex items-center gap-6">
               <a href="#contacto" className="hover:underline">
@@ -91,10 +88,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Navbar principal */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
           <Link
             href="/"
             className="text-xl sm:text-2xl font-bold text-slate-800"
@@ -102,7 +97,6 @@ export default function Navbar() {
             <Image src="/nuvowin-logo.webp" alt="Logo" width={50} height={50} />
           </Link>
 
-          {/* Menú Desktop */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             <Link
               href="/"
@@ -117,16 +111,13 @@ export default function Navbar() {
                 <ChevronDown className="h-4 w-4" />
               </button>
 
-              {/* Mega menu container (styled to match design) */}
               <div
                 className="absolute left-1/4 transform -translate-x-1/2 top-full mt-7 w-[400vh] bg-gradient-to-b from-white to-white shadow-lg rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-y-auto border-t-2 border-blue-100"
                 style={{ maxHeight: "calc(100vh - 6rem)" }}
               >
                 <div className="w-screen mx-auto px-6 py-6 relative">
-                  {/* small triangle pointer centered relative to inner container */}
 
                   <div className="grid grid-cols-[auto_1fr] gap-0 bg-gray-50 rounded-lg border border-gray-200">
-                    {/* Columna izquierda: navegación */}
                     <div className="flex flex-col h-full border-r border-gray-200">
                       <nav className="flex flex-col gap-0 text-base font-sans">
                         {[
@@ -149,7 +140,6 @@ export default function Navbar() {
                       </nav>
                     </div>
 
-                    {/* Columna derecha: bloque informativo y contenido */}
                     <div className="flex flex-col h-full p-10">
                       <div className="mb-6">
                         <h3 className="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">
@@ -247,14 +237,12 @@ export default function Navbar() {
                 Puertas
                 <ChevronDown className="h-4 w-4" />
               </button>
-              {/* Mega menu container (diseño original) */}
               <div
                 className="absolute -left-[125%] transform -translate-x-1/2 top-full mt-7 w-[400vh] bg-gradient-to-b from-white to-white shadow-lg rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-y-auto border-t-2 border-blue-100"
                 style={{ maxHeight: "calc(100vh - 6rem)" }}
               >
                 <div className="w-screen mx-auto px-6 py-6 relative">
                   <div className="grid grid-cols-[auto_1fr] gap-0 bg-gray-50 rounded-lg border border-gray-200">
-                    {/* Columna izquierda: navegación */}
                     <div className="flex flex-col h-full border-r border-gray-200">
                       <nav className="flex flex-col gap-0 text-base font-sans">
                         {[
@@ -278,7 +266,6 @@ export default function Navbar() {
                         ))}
                       </nav>
                     </div>
-                    {/* Columna derecha: bloque informativo y contenido */}
                     <div className="flex flex-col h-full p-10">
                       <div className="mb-6">
                         <h3 className="text-2xl font-bold text-gray-900 mb-2">
@@ -343,14 +330,12 @@ export default function Navbar() {
                 Persianas
                 <ChevronDown className="h-4 w-4" />
               </button>
-              {/* Mega menu container (diseño original) */}
               <div
                 className="absolute -left-[225%] transform -translate-x-1/2 top-full mt-7 w-[400vh] bg-gradient-to-b from-white to-white shadow-lg rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-y-auto border-t-2 border-blue-100"
                 style={{ maxHeight: "calc(100vh - 6rem)" }}
               >
                 <div className="w-screen mx-auto px-6 py-6 relative">
                   <div className="grid grid-cols-[auto_1fr] gap-0 bg-gray-50 rounded-lg border border-gray-200">
-                    {/* Columna izquierda: navegación */}
                     <div className="flex flex-col h-full border-r border-gray-200">
                       <nav className="flex flex-col gap-0 text-base font-sans">
                         {[
@@ -372,7 +357,6 @@ export default function Navbar() {
                         ))}
                       </nav>
                     </div>
-                    {/* Columna derecha: bloque informativo y contenido */}
                     <div className="flex flex-col h-full p-10">
                       <div className="mb-6">
                         <h3 className="text-2xl font-bold text-gray-900 mb-2">
@@ -416,7 +400,6 @@ export default function Navbar() {
                           </ul>
                         </div>
                         <div className="space-y-4 px-6 flex flex-col justify-between">
-                          {/* vacío, no hay botón ni columna extra en la referencia */}
                         </div>
                       </div>
                     </div>
@@ -437,7 +420,6 @@ export default function Navbar() {
             </Button>
           </div>
 
-          {/* Botón menú móvil */}
           <button
             className="lg:hidden text-gray-700"
             onClick={() => setIsOpen(!isOpen)}
@@ -446,7 +428,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Menú móvil */}
         <div
           className={`lg:hidden transition-all duration-300 overflow-hidden ${
             isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
