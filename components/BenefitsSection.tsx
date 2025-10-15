@@ -2,7 +2,7 @@
 import { Shield, Leaf, DollarSign, Wrench, Award, Clock } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const benefits = [
     {
@@ -43,115 +43,108 @@ const benefits = [
     },
 ];
 
-export default function BenefitsSection() {
-    const [loadedMap, setLoadedMap] = useState<Record<number, { image: boolean }>>(() => {
-        try {
-            return benefits.reduce((acc, _b, i) => {
-                const key = `bs:${i}:image`;
-                acc[i] = { image: typeof window !== "undefined" && sessionStorage.getItem(key) === "1" };
-                return acc;
-            }, {} as Record<number, { image: boolean }>);
-        } catch (e) {
-            return benefits.reduce((acc, _b, i) => {
-                acc[i] = { image: false };
-                return acc;
-            }, {} as Record<number, { image: boolean }>);
-        }
-    });
+const colors = {
+    primary: "#0b72ba",
+    text: "#4a4a49",
+    textSecondary: "#7b7a7d",
+};
 
-    const [minTimePassed, setMinTimePassed] = useState(false);
+export default function BenefitsSection() {
+    const [isvisible, setisvisible] = useState(false);
+    const [activeindex, setactiveindex] = useState(0);
+
     useEffect(() => {
-        const t = setTimeout(() => setMinTimePassed(true), 2000);
-        return () => clearTimeout(t);
+        const timer = setTimeout(() => setisvisible(true), 300);
+        return () => clearTimeout(timer);
     }, []);
 
-    function markLoaded(i: number) {
-        const key = `bs:${i}:image`;
-        try {
-            sessionStorage.setItem(key, "1");
-        } catch (e) {
-        }
-        setLoadedMap((prev) => ({ ...prev, [i]: { image: true } }));
-    }
-
-    function benefitIsReady(i: number) {
-        const s = loadedMap[i];
-        return !!s && s.image;
-    }
-
-    const isLoading = !minTimePassed || Object.values(loadedMap).some((s) => !s.image);
+    const handledotclick = (index: any) => {
+        setactiveindex(index);
+    };
 
     return (
-        <section className="py-20 bg-gradient-to-b from-slate-50 to-white" aria-busy={isLoading}>
+        <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#4a4a49]">
-                        ¿Por Qué Elegir Nuestras Ventanas?
+                    <h2
+                        className="text-4xl md:text-5xl font-bold mb-4"
+                        style={{ color: colors.text }}
+                    >
+                        ¿Por qué elegir nuestras ventanas?
                     </h2>
-                    <p className="text-xl max-w-3xl mx-auto text-[#0b72ba]">
+                    <p
+                        className="text-xl max-w-3xl mx-auto"
+                        style={{ color: colors.primary }}
+                    >
                         Tecnología de vanguardia, diseño elegante y beneficios reales para tu hogar
                     </p>
                 </div>
+                <div className="flex items-center justify-center mb-6 text-sm text-gray-500 animate-pulse">
+                    <span className="flex items-center gap-2">
+                        <span className="inline-block">Desliza para ver más</span>
+                        <span className="inline-block text-blue-500">&rarr;</span>
+                    </span>
+                </div>
+                <div className="w-full">
+                    <Carousel
+                        opts={{
+                            align: "start",
+                            loop: true,
+                        }}
+                        className="w-full relative select-none cursor-grab active:cursor-grabbing"
+                    >
+                        <CarouselContent className="-ml-2 md:-ml-4">
+                            {benefits.map((benefit, index) => {
+                                const Icon = benefit.icon;
+                                return (
+                                    <CarouselItem
+                                        key={`${benefit.title}-${index}`}
+                                        className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                                    >
+                                        <div
+                                            className={`flex flex-col items-center justify-center p-6 rounded-lg bg-white border transition-all duration-300 h-full transform ${isvisible
+                                                ? "opacity-100 translate-y-0"
+                                                : "opacity-0 translate-y-4"
+                                                }`}
+                                            style={{
+                                                transitionDelay: isvisible ? `${index * 100}ms` : "0ms",
+                                                borderColor: `${colors.primary}33`,
+                                                minHeight: "300px",
+                                            }}
+                                        >
+                                            <div
+                                                className="w-20 h-20 rounded-full flex items-center justify-center mb-6 border"
+                                                style={{
+                                                    backgroundColor: `${colors.primary}19`,
+                                                    borderColor: `${colors.primary}33`,
+                                                }}
+                                            >
+                                                <Icon
+                                                    className="h-10 w-10"
+                                                    style={{ color: colors.primary }}
+                                                />
+                                            </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {benefits.map((benefit, index) => {
-                        const Icon = benefit.icon;
-                        const ready = benefitIsReady(index);
-                        const showContent = ready && minTimePassed;
-
-                        return (
-                            <div
-                                key={index}
-                                className="group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                            >
-                                {/* Contenido principal */}
-                                <div className="relative z-10 p-8">
-                                    <div className="bg-white/70 w-16 h-16 rounded-full flex items-center justify-center mb-6 border border-[#0b72ba]/40 shadow-sm transition-colors duration-200">
-                                        {!showContent ? (
-                                            <Skeleton className="w-8 h-8 rounded-full" />
-                                        ) : (
-                                            <Icon className="h-8 w-8 text-[#0b72ba] transition-colors duration-200" />
-                                        )}
-                                    </div>
-
-                                    {!showContent ? (
-                                        <>
-                                            <Skeleton className="h-6 w-48 mb-3" />
-                                            <Skeleton className="h-4 w-full" />
-                                        </>
-                                    ) : (
-                                        <>
-                                            <h3 className="text-xl font-bold mb-3 text-[#4a4a49]">{benefit.title}</h3>
-                                            <p className="leading-relaxed text-[#7b7a7d]">{benefit.description}</p>
-                                        </>
-                                    )}
-                                </div>
-
-                                <div className="absolute top-0 right-0 w-2/3 h-full">
-                                    <Image
-                                        src={benefit.image}
-                                        alt=""
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, 40vw"
-                                        onLoadingComplete={() => markLoaded(index)}
-                                        loading="lazy"
-                                        quality={60}
-                                        className={`w-full h-full object-cover opacity-50 transition-opacity duration-200 group-hover:opacity-30 ${
-                                            showContent ? "opacity-50" : "opacity-0"
-                                        }`}
-                                    />
-
-                                    {!showContent && (
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <Skeleton className="w-full h-full rounded-md" />
+                                            <div className="text-center w-full">
+                                                <h3
+                                                    className="text-lg font-bold mb-3"
+                                                    style={{ color: colors.text }}
+                                                >
+                                                    {benefit.title}
+                                                </h3>
+                                                <p
+                                                    className="text-sm leading-relaxed"
+                                                    style={{ color: colors.textSecondary }}
+                                                >
+                                                    {benefit.description}
+                                                </p>
+                                            </div>
                                         </div>
-                                    )}
-
-                                    <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
-                                </div>
-                            </div>
-                        );
-                    })}
+                                    </CarouselItem>
+                                );
+                            })}
+                        </CarouselContent>
+                    </Carousel>
                 </div>
             </div>
         </section>

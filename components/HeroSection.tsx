@@ -5,15 +5,16 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Thermometer, Volume2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
+const slides = [
+    "/images-heroSection/image_background_1.webp",
+    "/images-heroSection/image_background_2.webp",
+    "/images-heroSection/image_background_3.webp",
+    "/images-heroSection/image_background_4.webp"
+];
+
 export default function HeroSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    const slides = [
-        "/images-heroSection/image_background_1.webp",
-        "/images-heroSection/image_background_2.webp",
-        "/images-heroSection/image_background_3.webp",
-        "/images-heroSection/image_background_4.webp"
-    ];
 
     const [loadedSlides, setLoadedSlides] = useState<boolean[]>(() => Array(slides.length).fill(false));
     const [minTimePassed, setMinTimePassed] = useState(false);
