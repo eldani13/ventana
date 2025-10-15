@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Thermometer, Volume2, ChevronLeft, ChevronRight } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function HeroSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -13,6 +14,42 @@ export default function HeroSection() {
         "/images-heroSection/image_background_3.webp",
         "/images-heroSection/image_background_4.webp"
     ];
+
+    const [loadedSlides, setLoadedSlides] = useState<boolean[]>(() => Array(slides.length).fill(false));
+    const [minTimePassed, setMinTimePassed] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== "undefined" && sessionStorage.getItem("hero:loaded") === "1") {
+            setLoadedSlides(Array(slides.length).fill(true));
+            setMinTimePassed(true);
+            return;
+        }
+
+        const imgObjs: HTMLImageElement[] = [];
+        slides.forEach((src, i) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+                setLoadedSlides((prev) => {
+                    const next = [...prev];
+                    next[i] = true;
+                    if (next.every(Boolean)) {
+                        try { sessionStorage.setItem("hero:loaded", "1"); } catch {}
+                    }
+                    return next;
+                });
+            };
+            imgObjs.push(img);
+        });
+
+        const t = setTimeout(() => setMinTimePassed(true), 2000);
+        return () => {
+            clearTimeout(t);
+        };
+    }, [slides]);
+
+    const allSlidesLoaded = loadedSlides.every(Boolean);
+    const showContent = allSlidesLoaded && minTimePassed;
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -50,21 +87,27 @@ export default function HeroSection() {
                 ))}
             </div>
 
-            {/* Carousel Controls */}
-            {/* <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 md:p-3 transition-all duration-300 group"
-                aria-label="Imagen anterior"
-            >
-                <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-white group-hover:scale-110 transition-transform" />
-            </button>
-            <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 md:p-3 transition-all duration-300 group"
-                aria-label="Siguiente imagen"
-            >
-                <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-white group-hover:scale-110 transition-transform" />
-            </button> */}
+            {!showContent && (
+                <div className="absolute inset-0 z-40 flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-900/95">
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-50 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20">
+                        <div className="max-w-3xl lg:max-w-4xl">
+                            <Skeleton className="h-12 w-3/4 mb-4 rounded-md" />
+                            <Skeleton className="h-6 w-full mb-6 rounded-md" />
+
+                            <div className="flex gap-3 mb-6">
+                                <Skeleton className="h-12 w-40 rounded-md" />
+                                <Skeleton className="h-12 w-40 rounded-md" />
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                                <Skeleton className="h-16 rounded-lg" />
+                                <Skeleton className="h-16 rounded-lg" />
+                                <Skeleton className="h-16 rounded-lg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Carousel Indicators */}
             <div className="absolute bottom-20 md:bottom-24 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
