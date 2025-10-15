@@ -3,25 +3,53 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Thermometer, Volume2, ChevronLeft, ChevronRight } from "lucide-react";
-
-import imageBackground1 from "../images/image_background_1.png";
-import imageBackground2 from "../images/image_background_2.jpg";
-import imageBackground3 from "../images/image_background_3.png";
-import imageBackground4 from "../images/image_background_4.jpg";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function HeroSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
-        // "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1920",
-        // "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1920",
-        // "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1920",
-        // "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920"
-        imageBackground3.src,
-        imageBackground1.src,
-        imageBackground4.src,
-        imageBackground2.src
+        "/images-heroSection/image_background_1.webp",
+        "/images-heroSection/image_background_2.webp",
+        "/images-heroSection/image_background_3.webp",
+        "/images-heroSection/image_background_4.webp"
     ];
+
+    const [loadedSlides, setLoadedSlides] = useState<boolean[]>(() => Array(slides.length).fill(false));
+    const [minTimePassed, setMinTimePassed] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== "undefined" && sessionStorage.getItem("hero:loaded") === "1") {
+            setLoadedSlides(Array(slides.length).fill(true));
+            setMinTimePassed(true);
+            return;
+        }
+
+        const imgObjs: HTMLImageElement[] = [];
+        slides.forEach((src, i) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+                setLoadedSlides((prev) => {
+                    const next = [...prev];
+                    next[i] = true;
+                    if (next.every(Boolean)) {
+                        try { sessionStorage.setItem("hero:loaded", "1"); } catch {}
+                    }
+                    return next;
+                });
+            };
+            imgObjs.push(img);
+        });
+
+        const t = setTimeout(() => setMinTimePassed(true), 2000);
+        return () => {
+            clearTimeout(t);
+        };
+    }, [slides]);
+
+    const allSlidesLoaded = loadedSlides.every(Boolean);
+    const showContent = allSlidesLoaded && minTimePassed;
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -46,9 +74,8 @@ export default function HeroSection() {
                 {slides.map((slide, index) => (
                     <div
                         key={index}
-                        className={`absolute inset-0 transition-opacity duration-1000 ${
-                            index === currentSlide ? "opacity-100" : "opacity-0"
-                        }`}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+                            }`}
                         style={{
                             backgroundImage: `url('${slide}')`,
                             backgroundSize: "cover",
@@ -60,21 +87,27 @@ export default function HeroSection() {
                 ))}
             </div>
 
-            {/* Carousel Controls */}
-            {/* <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 md:p-3 transition-all duration-300 group"
-                aria-label="Imagen anterior"
-            >
-                <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-white group-hover:scale-110 transition-transform" />
-            </button>
-            <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 md:p-3 transition-all duration-300 group"
-                aria-label="Siguiente imagen"
-            >
-                <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-white group-hover:scale-110 transition-transform" />
-            </button> */}
+            {!showContent && (
+                <div className="absolute inset-0 z-40 flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-900/95">
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-50 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20">
+                        <div className="max-w-3xl lg:max-w-4xl">
+                            <Skeleton className="h-12 w-3/4 mb-4 rounded-md" />
+                            <Skeleton className="h-6 w-full mb-6 rounded-md" />
+
+                            <div className="flex gap-3 mb-6">
+                                <Skeleton className="h-12 w-40 rounded-md" />
+                                <Skeleton className="h-12 w-40 rounded-md" />
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                                <Skeleton className="h-16 rounded-lg" />
+                                <Skeleton className="h-16 rounded-lg" />
+                                <Skeleton className="h-16 rounded-lg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Carousel Indicators */}
             <div className="absolute bottom-20 md:bottom-24 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
@@ -82,11 +115,10 @@ export default function HeroSection() {
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                            index === currentSlide
+                        className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide
                                 ? "w-8 bg-[#f25d21]"
                                 : "w-2 bg-white/50 hover:bg-white/70"
-                        }`}
+                            }`}
                         aria-label={`Ir a imagen ${index + 1}`}
                     />
                 ))}
@@ -104,8 +136,8 @@ export default function HeroSection() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
-                        <Button 
-                            size="lg" 
+                        <Button
+                            size="lg"
                             className="bg-[#f25d21] hover:bg-[#d94d18] text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                         >
                             <a href="#configurador" className="flex items-center justify-center gap-2 w-full">
@@ -113,9 +145,9 @@ export default function HeroSection() {
                                 <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                             </a>
                         </Button>
-                        <Button 
-                            size="lg" 
-                            variant="outline" 
+                        <Button
+                            size="lg"
+                            variant="outline"
                             className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#4a4a49] text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                         >
                             <a href="#cotizacion" className="w-full">Solicitar Cotización</a>
