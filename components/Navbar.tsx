@@ -42,12 +42,12 @@ export default function Navbar() {
                 )}
               </span>
             </button>
-            <a href="#profesionales" className="hover:underline">
+            <Link href="/profesionales" className="hover:underline">
               Profesionales
-            </a>
-            <a href="#particulares" className="hover:underline">
+            </Link>
+            <Link href="/particulares" className="hover:underline">
               Particulares
-            </a>
+            </Link>
           </div>
           <div className="hidden sm:flex w-full items-center justify-between">
             <div className="flex items-center gap-6">
@@ -80,12 +80,12 @@ export default function Navbar() {
               </button>
             </div>
             <div className="flex items-center gap-6">
-              <a href="#profesionales" className="hover:underline">
+              <Link href="/profesionales" className="hover:underline">
                 Profesionales
-              </a>
-              <a href="#particulares" className="hover:underline">
+              </Link>
+              <Link href="/particulares" className="hover:underline">
                 Particulares
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -125,12 +125,12 @@ export default function Navbar() {
                     <div className="flex flex-col h-full border-r border-gray-200">
                       <nav className="flex flex-col gap-0 text-base font-sans">
                         {[
-                          ["abatibles", "Ventanas abatibles"],
-                          ["correderas", "Ventanas correderas"],
-                        ].map(([key, text], idx) => (
-                          <a
+                          ["abatibles", "Ventanas abatibles", "/ventanas/abatibles"],
+                          ["correderas", "Ventanas correderas", "/ventanas/correderas"],
+                        ].map(([key, text, href], idx) => (
+                          <Link
                             key={key}
-                            href={key === "abatibles" ? "#abatibles" : "#correderas"}
+                            href={href as string}
                             onMouseEnter={() => setActiveVentanasSection(key as "abatibles" | "correderas")}
                             onFocus={() => setActiveVentanasSection(key as "abatibles" | "correderas")}
                             className={
@@ -141,7 +141,7 @@ export default function Navbar() {
                             style={{ textAlign: "center" }}
                           >
                             {text}
-                          </a>
+                          </Link>
                         ))}
                       </nav>
                     </div>
@@ -227,7 +227,7 @@ export default function Navbar() {
                               </div>
                               <div className="flex justify-end mt-8">
                                 <a
-                                  href="#cotizacion"
+                                  href="/cotizacion"
                                   className="inline-block bg-blue-600 text-white text-base font-bold px-8 py-3 rounded-lg shadow hover:bg-blue-700 transition-colors"
                                 >
                                   Solicita presupuesto
@@ -261,11 +261,11 @@ export default function Navbar() {
                                   PremiLine58
                                 </li>
                                 <li className="flex items-center gap-2 text-slate-700 font-medium">
-                                  <Image src="/images-ventana-navbar/premislide76.png" width={40} height={40} alt="PremiSlide76" className="inline-block mr-1 w-8" />
+                                  <Image src="/images-ventana-navbar/sistema_premislide76.png" width={40} height={40} alt="PremiSlide76" className="inline-block mr-1 w-8" />
                                   PremiSlide76
                                 </li>
                                 <li className="flex items-center gap-2 text-slate-700 font-medium">
-                                  <Image src="/images-ventana-navbar/premiline.png" width={40} height={40} alt="PremiLine" className="inline-block mr-1 w-8" />
+                                  <Image src="/images-ventana-navbar/sistema_premiline.png" width={40} height={40} alt="PremiLine" className="inline-block mr-1 w-8" />
                                   PremiLine
                                 </li>
                               </ul>
@@ -276,11 +276,11 @@ export default function Navbar() {
                               </h5>
                               <ul className="space-y-3">
                                 <li className="flex items-center gap-2 text-slate-700 font-medium">
-                                  <Image src="/images-ventana-navbar/corredora_premislide.png" width={40} height={40} alt="Corredora premislide" className="inline-block mr-1 w-8" />
+                                  <Image src="/images-ventana-navbar/corredera-slide.png" width={40} height={40} alt="Corredora premislide" className="inline-block mr-1 w-8" />
                                   Corredera premislide
                                 </li>
                                 <li className="flex items-center gap-2 text-slate-700 font-medium">
-                                  <Image src="/images-ventana-navbar/corredora_tradicional.png" width={40} height={40} alt="Corredora tradicional" className="inline-block mr-1 w-8" />
+                                  <Image src="/images-ventana-navbar/Corredera.png" width={40} height={40} alt="Corredora tradicional" className="inline-block mr-1 w-8" />
                                   Corredera tradicional
                                 </li>
                               </ul>
@@ -321,14 +321,14 @@ export default function Navbar() {
                     <div className="flex flex-col h-full border-r border-gray-200">
                       <nav className="flex flex-col gap-0 text-base font-sans">
                         {[
-                          ["calle", "Puertas de calle"],
-                          ["balconeras", "Puertas balconeras"],
-                          ["correderas", "Puertas correderas"],
-                          ["especiales", "Puertas especiales"],
-                        ].map(([key, text], idx) => (
-                          <a
+                          ["calle", "Puertas de calle", "/puertas/calle"],
+                          ["balconeras", "Puertas balconeras", "/puertas/balconeras"],
+                          ["correderas", "Puertas correderas", "/puertas/correderas"],
+                          ["especiales", "Puertas especiales", "/puertas/especiales"],
+                        ].map(([key, text, href], idx) => (
+                          <Link
                             key={key}
-                            href={key === "calle" ? "#puertascalle" : key === "balconeras" ? "#balconeras" : key === "correderas" ? "#correderas" : "#especiales"}
+                            href={href as string}
                             onMouseEnter={() => setActivePuertasSection(key as any)}
                             onFocus={() => setActivePuertasSection(key as any)}
                             className={
@@ -343,7 +343,7 @@ export default function Navbar() {
                             style={{ textAlign: "center" }}
                           >
                             {text}
-                          </a>
+                          </Link>
                         ))}
                       </nav>
                     </div>
@@ -394,7 +394,7 @@ export default function Navbar() {
                               </div>
                               <div className="flex justify-end mt-6">
                                 <a
-                                  href="#configura-puerta"
+                                  href="/configurador"
                                   className="inline-block bg-blue-600 text-white text-base font-bold px-8 py-4 rounded shadow hover:bg-blue-700 transition-colors"
                                 >
                                   Configura tu puerta
@@ -452,18 +452,18 @@ export default function Navbar() {
                             <div className="space-y-3 px-6">
                               <h5 className="text-lg font-bold text-gray-800">Sistemas Kömmerling</h5>
                               <ul className="space-y-2 text-base text-gray-700">
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/premiline58.png" width={40} height={40} alt="PremiLine58" className="inline-block mr-1 w-6" />PremiLine58</li>
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/premislide76.png" width={40} height={40} alt="PremiSlide76" className="inline-block mr-1 w-6" />PremiSlide76</li>
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/premidoor76.png" width={40} height={40} alt="PremiDoor76" className="inline-block mr-1 w-6" />PremiDoor76</li>
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/premiline.png" width={40} height={40} alt="PremiLine" className="inline-block mr-1 w-6" />PremiLine</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/premiline58.png" width={40} height={40} alt="PremiLine58" className="inline-block mr-1 w-6" />PremiLine58</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/sistema_premislide76.png" width={40} height={40} alt="PremiSlide76" className="inline-block mr-1 w-6" />PremiSlide76</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/trocal-premidoor-76-standard-weiss.png" width={40} height={40} alt="PremiDoor76" className="inline-block mr-1 w-6" />PremiDoor76</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/sistema_premiline.png" width={40} height={40} alt="PremiLine" className="inline-block mr-1 w-6" />PremiLine</li>
                               </ul>
                             </div>
                             <div className="space-y-3 px-6">
                               <h5 className="text-lg font-bold text-gray-800">Formas de apertura</h5>
                               <ul className="space-y-2 text-base text-gray-700">
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/corredora_premislide.png" width={40} height={40} alt="Corredera premislide" className="inline-block mr-1 w-6" />Corredera premislide</li>
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/corredora_tradicional.png" width={40} height={40} alt="Corredera tradicional" className="inline-block mr-1 w-6" />Corredera tradicional</li>
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/corredora_elevadora.png" width={40} height={40} alt="Corredera elevadora" className="inline-block mr-1 w-6" />Corredera elevadora</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/corredera_0.png" width={40} height={40} alt="Corredera premislide" className="inline-block mr-1 w-6" />Corredera premislide</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/Corredera.png" width={40} height={40} alt="Corredera tradicional" className="inline-block mr-1 w-6" />Corredera tradicional</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/ventana-elevadora.png" width={40} height={40} alt="Corredera elevadora" className="inline-block mr-1 w-6" />Corredera elevadora</li>
                               </ul>
                             </div>
                             <div className="space-y-4 px-6 flex flex-col justify-between">
@@ -539,12 +539,12 @@ export default function Navbar() {
                     <div className="flex flex-col h-full border-r border-gray-200">
                       <nav className="flex flex-col gap-0 text-base font-sans">
                         {[
-                          ["persianas", "Persianas"],
-                          ["contraventanas", "Contraventanas"],
-                        ].map(([key, text], idx) => (
-                          <a
+                          ["persianas", "Persianas", "/persianas"],
+                          ["contraventanas", "Contraventanas", "/persianas/contraventanas"],
+                        ].map(([key, text, href], idx) => (
+                          <Link
                             key={key}
-                            href={key === "persianas" ? "#persianas" : "#contraventanas"}
+                            href={href as string}
                             onMouseEnter={() => setActivePersianasSection(key as any)}
                             onFocus={() => setActivePersianasSection(key as any)}
                             className={
@@ -555,7 +555,7 @@ export default function Navbar() {
                             style={{ textAlign: "center" }}
                           >
                             {text}
-                          </a>
+                          </Link>
                         ))}
                       </nav>
                     </div>
@@ -602,13 +602,13 @@ export default function Navbar() {
                             <div className="space-y-3 px-6">
                               <h5 className="text-lg font-bold text-gray-800">Exterior</h5>
                               <ul className="space-y-2 text-base text-gray-700">
-                                <li className="flex items-center gap-2"><Image src="/images-persianas-navbar/sistema-lider.png" width={40} height={40} alt="Sistema Líder" className="inline-block mr-1 w-6" />Sistema Líder</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/contraventana_lider.png" width={40} height={40} alt="Sistema Líder" className="inline-block mr-1 w-6" />Sistema Líder</li>
                               </ul>
                             </div>
                             <div className="space-y-3 px-6">
                               <h5 className="text-lg font-bold text-gray-800">Interior</h5>
                               <ul className="space-y-2 text-base text-gray-700">
-                                <li className="flex items-center gap-2"><Image src="/images-persianas-navbar/sistema-frailero.png" width={40} height={40} alt="Sistema Frailero" className="inline-block mr-1 w-6" />Sistema Frailero</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/frailero.png" width={40} height={40} alt="Sistema Frailero" className="inline-block mr-1 w-6" />Sistema Frailero</li>
                               </ul>
                             </div>
                             <div className="space-y-4 px-6 flex flex-col justify-between">
@@ -630,15 +630,15 @@ export default function Navbar() {
               </div>
             </div>
 
-            <a
-              href="#contacto"
+            <Link
+              href="/contacto"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
               Contacto
-            </a>
+            </Link>
 
             <Button asChild className="bg-[#f25d21] hover:bg-[#e98057]">
-              <a href="#cotizacion">Solicitar Cotización</a>
+              <a href="/cotizacion">Solicitar Cotización</a>
             </Button>
           </div>
 
@@ -678,43 +678,43 @@ export default function Navbar() {
               {ventanasOpen && (
                 <div className="ml-4 mt-2 flex flex-col gap-2">
                   {[
-                    ["#abatibles", "Ventanas Abatibles"],
-                    ["#correderas", "Ventanas Correderas"],
-                    ["#panoramicas", "Ventanas Panorámicas"],
-                    ["#aislantes", "Ventanas Aislantes"],
+                    ["/ventanas/abatibles", "Ventanas Abatibles"],
+                    ["/ventanas/correderas", "Ventanas Correderas"],
+                    ["/ventanas/panoramicas", "Ventanas Panorámicas"],
+                    ["/ventanas/aislantes", "Ventanas Aislantes"],
                   ].map(([href, text]) => (
-                    <a
+                    <Link
                       key={href}
-                      href={href}
+                      href={href as string}
                       className="text-gray-600 hover:text-blue-600 py-1 transition-colors"
                     >
                       {text}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
 
-            <a
-              href="#recursos"
+            <Link
+              href="/recursos"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
               Recursos
-            </a>
-            <a
-              href="#configurador"
+            </Link>
+            <Link
+              href="/configurador"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
               Configurador
-            </a>
-            <a
-              href="#contacto"
+            </Link>
+            <Link
+              href="/contacto"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
               Contacto
-            </a>
+            </Link>
             <Button asChild className="bg-blue-600 hover:bg-blue-700 w-full">
-              <a href="#cotizacion">Solicitar Cotización</a>
+              <a href="/cotizacion">Solicitar Cotización</a>
             </Button>
           </div>
         </div>
