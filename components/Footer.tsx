@@ -132,16 +132,24 @@ export default function Footer() {
                         <p className="text-white/80 text-sm">
                             © 2025 Nuvowin. Todos los derechos reservados.
                         </p>
-                        <div className="flex gap-6 text-sm">
-                            <a href="#" className="text-white/80 hover:text-[#f25d21] transition-colors">
-                                Aviso de Privacidad
-                            </a>
-                            <a href="#" className="text-white/80 hover:text-[#f25d21] transition-colors">
-                                Términos y Condiciones
-                            </a>
-                            <a href="#" className="text-white/80 hover:text-[#f25d21] transition-colors">
-                                Mapa del Sitio
-                            </a>
+                        <div className="flex flex-col md:flex-row items-center gap-4">
+                            <div className="flex gap-6 text-sm">
+                                <a href="#" className="text-white/80 hover:text-[#f25d21] transition-colors">
+                                    Aviso de Privacidad
+                                </a>
+                                <a href="#" className="text-white/80 hover:text-[#f25d21] transition-colors">
+                                    Términos y Condiciones
+                                </a>
+                                <a href="#" className="text-white/80 hover:text-[#f25d21] transition-colors">
+                                    Mapa del Sitio
+                                </a>
+                            </div>
+                            <div className="text-white/80 text-sm">
+                                Página creada por{' '}
+                                <a href="https://www.thedid.space" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#f25d21] underline transition-colors">
+                                    The D&D
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -261,11 +261,11 @@ export default function Navbar() {
                                   PremiLine58
                                 </li>
                                 <li className="flex items-center gap-2 text-slate-700 font-medium">
-                                  <Image src="/images-ventana-navbar/premislide76.png" width={40} height={40} alt="PremiSlide76" className="inline-block mr-1 w-8" />
+                                  <Image src="/images-ventana-navbar/sistema_premislide76.png" width={40} height={40} alt="PremiSlide76" className="inline-block mr-1 w-8" />
                                   PremiSlide76
                                 </li>
                                 <li className="flex items-center gap-2 text-slate-700 font-medium">
-                                  <Image src="/images-ventana-navbar/premiline.png" width={40} height={40} alt="PremiLine" className="inline-block mr-1 w-8" />
+                                  <Image src="/images-ventana-navbar/sistema_premiline.png" width={40} height={40} alt="PremiLine" className="inline-block mr-1 w-8" />
                                   PremiLine
                                 </li>
                               </ul>
@@ -276,11 +276,11 @@ export default function Navbar() {
                               </h5>
                               <ul className="space-y-3">
                                 <li className="flex items-center gap-2 text-slate-700 font-medium">
-                                  <Image src="/images-ventana-navbar/corredora_premislide.png" width={40} height={40} alt="Corredora premislide" className="inline-block mr-1 w-8" />
+                                  <Image src="/images-ventana-navbar/corredera-slide.png" width={40} height={40} alt="Corredora premislide" className="inline-block mr-1 w-8" />
                                   Corredera premislide
                                 </li>
                                 <li className="flex items-center gap-2 text-slate-700 font-medium">
-                                  <Image src="/images-ventana-navbar/corredora_tradicional.png" width={40} height={40} alt="Corredora tradicional" className="inline-block mr-1 w-8" />
+                                  <Image src="/images-ventana-navbar/Corredera.png" width={40} height={40} alt="Corredora tradicional" className="inline-block mr-1 w-8" />
                                   Corredera tradicional
                                 </li>
                               </ul>
@@ -452,18 +452,18 @@ export default function Navbar() {
                             <div className="space-y-3 px-6">
                               <h5 className="text-lg font-bold text-gray-800">Sistemas Kömmerling</h5>
                               <ul className="space-y-2 text-base text-gray-700">
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/premiline58.png" width={40} height={40} alt="PremiLine58" className="inline-block mr-1 w-6" />PremiLine58</li>
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/premislide76.png" width={40} height={40} alt="PremiSlide76" className="inline-block mr-1 w-6" />PremiSlide76</li>
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/premidoor76.png" width={40} height={40} alt="PremiDoor76" className="inline-block mr-1 w-6" />PremiDoor76</li>
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/premiline.png" width={40} height={40} alt="PremiLine" className="inline-block mr-1 w-6" />PremiLine</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/premiline58.png" width={40} height={40} alt="PremiLine58" className="inline-block mr-1 w-6" />PremiLine58</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/sistema_premislide76.png" width={40} height={40} alt="PremiSlide76" className="inline-block mr-1 w-6" />PremiSlide76</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/trocal-premidoor-76-standard-weiss.png" width={40} height={40} alt="PremiDoor76" className="inline-block mr-1 w-6" />PremiDoor76</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/sistema_premiline.png" width={40} height={40} alt="PremiLine" className="inline-block mr-1 w-6" />PremiLine</li>
                               </ul>
                             </div>
                             <div className="space-y-3 px-6">
                               <h5 className="text-lg font-bold text-gray-800">Formas de apertura</h5>
                               <ul className="space-y-2 text-base text-gray-700">
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/corredora_premislide.png" width={40} height={40} alt="Corredera premislide" className="inline-block mr-1 w-6" />Corredera premislide</li>
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/corredora_tradicional.png" width={40} height={40} alt="Corredera tradicional" className="inline-block mr-1 w-6" />Corredera tradicional</li>
-                                <li className="flex items-center gap-2"><Image src="/images-puertas-navbar/corredora_elevadora.png" width={40} height={40} alt="Corredera elevadora" className="inline-block mr-1 w-6" />Corredera elevadora</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/corredera_0.png" width={40} height={40} alt="Corredera premislide" className="inline-block mr-1 w-6" />Corredera premislide</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/Corredera.png" width={40} height={40} alt="Corredera tradicional" className="inline-block mr-1 w-6" />Corredera tradicional</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/ventana-elevadora.png" width={40} height={40} alt="Corredera elevadora" className="inline-block mr-1 w-6" />Corredera elevadora</li>
                               </ul>
                             </div>
                             <div className="space-y-4 px-6 flex flex-col justify-between">
@@ -602,13 +602,13 @@ export default function Navbar() {
                             <div className="space-y-3 px-6">
                               <h5 className="text-lg font-bold text-gray-800">Exterior</h5>
                               <ul className="space-y-2 text-base text-gray-700">
-                                <li className="flex items-center gap-2"><Image src="/images-persianas-navbar/sistema-lider.png" width={40} height={40} alt="Sistema Líder" className="inline-block mr-1 w-6" />Sistema Líder</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/contraventana_lider.png" width={40} height={40} alt="Sistema Líder" className="inline-block mr-1 w-6" />Sistema Líder</li>
                               </ul>
                             </div>
                             <div className="space-y-3 px-6">
                               <h5 className="text-lg font-bold text-gray-800">Interior</h5>
                               <ul className="space-y-2 text-base text-gray-700">
-                                <li className="flex items-center gap-2"><Image src="/images-persianas-navbar/sistema-frailero.png" width={40} height={40} alt="Sistema Frailero" className="inline-block mr-1 w-6" />Sistema Frailero</li>
+                                <li className="flex items-center gap-2"><Image src="/images-ventana-navbar/frailero.png" width={40} height={40} alt="Sistema Frailero" className="inline-block mr-1 w-6" />Sistema Frailero</li>
                               </ul>
                             </div>
                             <div className="space-y-4 px-6 flex flex-col justify-between">
