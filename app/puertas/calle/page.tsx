@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 
 const opciones = [
     {
-        img: "/images-pages-puertaCalle/apertura_puerta_calle.png",
+        img: "/images-pages-puertaCalle/apertura_puerta_calle.webp",
         alt: "Puerta de calle abatible interior.",
         title: "Puerta de calle abatible interior.",
         desc: "Apertura hacia el interior mediante bisagras laterales.",
@@ -12,8 +12,8 @@ const opciones = [
 
 const tarjetas = [
     {
-        img: "/images-pages-puertaCalle/Rodenberg.png",
-        icon: "/images-pages-corredera/premiline.png",
+        img: "/images-pages-puertaCalle/Rodenberg.webp",
+        icon: "/images-pages-corredera/premiline.webp",
         title: "PremiLine",
         subtitle: "Puertas correderas elevables",
         desc: "Grandes superficies acristaladas con excelente hermeticidad.",
@@ -66,7 +66,7 @@ export default function PuertasCallePages() {
                         {/* Imagen */}
                         <div className="relative h-64 sm:h-80 md:h-96 rounded-sm overflow-hidden shadow-2xl">
                             <Image
-                                src="/images-pages-puertaCalle/Rodenberg.png"
+                                src="/images-pages-puertaCalle/Rodenberg.webp"
                                 alt="Persiana RolaPlus"
                                 fill
                                 className="object-cover"

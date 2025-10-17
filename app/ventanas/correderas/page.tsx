@@ -18,7 +18,7 @@ const opciones = [
 
 const tarjetas = [
     {
-        img: "/images-pages-corredera/DSC0065.png",
+        img: "/images-pages-corredera/DSC0065.webp",
         icon: "/images-productsSection/image_premiline58.webp",
         title: "PremiLine58",
         subtitle: "Tecnología para el confort",
@@ -26,16 +26,16 @@ const tarjetas = [
         button: "Más información",
     },
     {
-        img: "/images-pages-corredera/692k_ret .jpg",
-        icon: "/images-pages-corredera/premislide76.png",
+        img: "/images-pages-corredera/692k_ret.webp",
+        icon: "/images-pages-corredera/premislide76.webp",
         title: "PremiSlide76",
         subtitle: "Tecnología para el confort",
         desc: "Sistema de ventanas con triple junta para un aislamiento superior.",
         button: "Más información",
     },
     {
-        img: "/images-pages-corredera/Brasilien Fotowettbewerb 2024 (7).png",
-        icon: "/images-pages-corredera/premiline.png",
+        img: "/images-pages-corredera/Brasilien Fotowettbewerb 2024 (7).webp",
+        icon: "/images-pages-corredera/premiline.webp",
         title: "PremiLine",
         subtitle: "Puertas correderas elevables",
         desc: "Grandes superficies acristaladas con excelente hermeticidad.",
