@@ -91,7 +91,7 @@ export default function VentanasAbatiblesPage() {
                             </div>
 
                             <p className="text-sm text-slate-500 pt-4">
-                                Asegúrese siempre con su instalador de la Red Oficial KÖMMERLING de que la persiana instalada sea el sistema RolaPlus
+                                Garantice el confort de su hogar eligiendo soluciones de calidad que le brinden eficiencia, seguridad y bienestar a largo plazo.
                             </p>
                         </div>
 
