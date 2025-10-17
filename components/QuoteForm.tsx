@@ -66,7 +66,7 @@ export default function QuoteForm() {
     };
 
     return (
-        <main className="min-h-screen bg-[#fbfcfc] flex items-center justify-center py-16 px-4">
+        <main id="cotizacion" className="min-h-screen bg-[#fbfcfc] flex items-center justify-center py-16 px-4">
             <section className="max-w-7xl w-full">
                 <div className="text-center mb-16">
                     <div className="inline-block mb-4">

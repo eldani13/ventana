@@ -94,7 +94,7 @@ export default function WindowConfigurator() {
     };
 
     return (
-        <section className="min-h-screen py-12 md:py-20 bg-gradient-to-b from-white to-gray-50">
+        <section id="configurador" className="min-h-screen py-12 md:py-20 bg-gradient-to-b from-white to-gray-50">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-8 md:mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold text-transparent bg-gradient-to-r from-[#0b72ba] to-[#58a7d8] bg-clip-text pb-2 mb-4">
