@@ -66,7 +66,7 @@ export default function QuoteForm() {
     };
 
     return (
-        <main className="min-h-screen bg-[#fbfcfc] flex items-center justify-center py-16 px-4">
+        <main id="cotizacion" className="min-h-screen bg-[#fbfcfc] flex items-center justify-center py-16 px-4">
             <section className="max-w-7xl w-full">
                 <div className="text-center mb-16">
                     <div className="inline-block mb-4">
@@ -198,7 +198,7 @@ export default function QuoteForm() {
                         </div>
                     </div>
 
-                    <div className="space-y-6">
+                    <div id="contacto" className="space-y-6">
                         <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
                             <h2 className="text-2xl font-bold text-[#4a4a49] mb-6">
                                 Información de Contacto

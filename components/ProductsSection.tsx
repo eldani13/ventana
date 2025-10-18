@@ -71,6 +71,12 @@ const products = [
     },
 ];
 
+const openWhatsApp = () => {
+    const phoneNumber = ""; // Agregar número de teléfono aquí
+    const message = "Hola, estoy interesado en obtener más información sobre sus productos de ventanas.";
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+};
+
 export default function ProductsSection() {
     const [loadedMap, setLoadedMap] = useState<Record<string, { image: boolean; model: boolean }>>(() => {
         try {
@@ -123,7 +129,7 @@ export default function ProductsSection() {
         Object.values(loadedMap).some((s) => !(s.image && s.model));
 
     return (
-    <section className="py-16 md:py-24 bg-white" aria-busy={isLoading}>
+        <section className="py-16 md:py-24 bg-white" aria-busy={isLoading}>
             <div className="container mx-auto px-4 md:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16 md:mb-20">
@@ -151,26 +157,25 @@ export default function ProductsSection() {
                             >
                                 {/* Image */}
                                 <div className="w-full md:w-1/2 relative overflow-hidden group">
-                                        <div className="aspect-[4/3] md:aspect-[3/2] relative">
-                                            <Image
-                                                src={product.image}
-                                                alt={product.name}
-                                                fill
-                                                sizes="(max-width: 768px) 100vw, 50vw"
-                                                onLoadingComplete={() => markLoaded(product.id, "image")}
-                                                className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
-                                                    showContent ? "opacity-100" : "opacity-0"
+                                    <div className="aspect-[4/3] md:aspect-[3/2] relative">
+                                        <Image
+                                            src={product.image}
+                                            alt={product.name}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            onLoadingComplete={() => markLoaded(product.id, "image")}
+                                            className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${showContent ? "opacity-100" : "opacity-0"
                                                 }`}
-                                            />
+                                        />
 
-                                            {!showContent && (
-                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                    <Skeleton className="w-full h-full rounded-md" />
-                                                </div>
-                                            )}
+                                        {!showContent && (
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <Skeleton className="w-full h-full rounded-md" />
+                                            </div>
+                                        )}
 
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                        </div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </div>
                                     {/* Model */}
                                     <div className="absolute top-6 right-6 w-20 h-20 bg-white rounded shadow-md flex items-center justify-center">
                                         <Image
@@ -179,9 +184,8 @@ export default function ProductsSection() {
                                             width={80}
                                             height={80}
                                             onLoadingComplete={() => markLoaded(product.id, "model")}
-                                            className={`w-full h-full object-contain transition-opacity duration-300 ${
-                                                showContent ? "opacity-100" : "opacity-0"
-                                            }`}
+                                            className={`w-full h-full object-contain transition-opacity duration-300 ${showContent ? "opacity-100" : "opacity-0"
+                                                }`}
                                         />
 
                                         {!showContent && <Skeleton className="absolute w-12 h-12 rounded-md" />}
@@ -263,6 +267,7 @@ export default function ProductsSection() {
                     <div className="flex justify-center gap-4 flex-wrap">
                         {/* Botón existente */}
                         <Button
+                            onClick={openWhatsApp}
                             variant="outline"
                             size="lg"
                             className="border-2 border-gray-300 hover:border-[#f25d21] hover:text-[#f25d21] text-gray-700 px-8 py-6 text-base font-semibold transition-all duration-300"
