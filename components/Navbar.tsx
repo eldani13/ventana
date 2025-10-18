@@ -631,14 +631,14 @@ export default function Navbar() {
             </div>
 
             <Link
-              href="/contacto"
+              href="#contacto"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
               Contacto
             </Link>
 
             <Button asChild className="bg-[#f25d21] hover:bg-[#e98057]">
-              <a href="/cotizacion">Solicitar Cotización</a>
+              <a href="#cotizacion">Solicitar Cotización</a>
             </Button>
           </div>
 
@@ -702,19 +702,19 @@ export default function Navbar() {
               Recursos
             </Link>
             <Link
-              href="/configurador"
+              href="#configurador"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
               Configurador
             </Link>
             <Link
-              href="/contacto"
+              href="#contacto"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
               Contacto
             </Link>
             <Button asChild className="bg-blue-600 hover:bg-blue-700 w-full">
-              <a href="/cotizacion">Solicitar Cotización</a>
+              <a href="#cotizacion">Solicitar Cotización</a>
             </Button>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 
 const opciones = [
     {
-        img: "/images-pages-puertaCalle/apertura_puerta_calle.png",
+        img: "/images-pages-puertaCalle/apertura_puerta_calle.webp",
         alt: "Puerta de calle abatible interior.",
         title: "Puerta de calle abatible interior.",
         desc: "Apertura hacia el interior mediante bisagras laterales.",
@@ -18,7 +18,7 @@ const opciones = [
 
 const tarjetas = [
     {
-        img: "/images-pages-balconeras/PRO_Titel_Prospekt_PremiDoor_88_EFH_St_Ingbert_MG_6553_4c.png",
+        img: "/images-pages-balconeras/PRO_Titel_Prospekt_PremiDoor_88_EFH_St_Ingbert_MG_6553_4c.webp",
         icon: "/images-productsSection/image_kommerling76_1.webp",
         title: "KÖMMERLING76 Xtrem",
         subtitle: "Puertas correderas elevables",
@@ -50,10 +50,12 @@ export default function PuertasBalconerasPages() {
                             </p>
 
                             <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                                <button className="px-8 py-4 bg-[#f25d21] text-white font-semibold rounded-sm shadow-lg hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group">
+                                <a 
+                                href="/#cotizacion"
+                                className="px-8 py-4 bg-[#f25d21] text-white font-semibold rounded-sm shadow-lg hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group">
                                     Solicitar cotización
                                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </button>
+                                </a>
 
                                 {/* <a
                                     href="/docs/fichaTécnica-RolaPlus.pdf"
@@ -72,7 +74,7 @@ export default function PuertasBalconerasPages() {
                         {/* Imagen */}
                         <div className="relative h-64 sm:h-80 md:h-96 rounded-sm overflow-hidden shadow-2xl">
                             <Image
-                                src="/images-pages-balconeras/Gorissen58.png"
+                                src="/images-pages-balconeras/Gorissen58.webp"
                                 alt="Persiana RolaPlus"
                                 fill
                                 className="object-cover"
