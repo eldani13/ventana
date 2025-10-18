@@ -198,7 +198,7 @@ export default function QuoteForm() {
                         </div>
                     </div>
 
-                    <div className="space-y-6">
+                    <div id="contacto" className="space-y-6">
                         <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
                             <h2 className="text-2xl font-bold text-[#4a4a49] mb-6">
                                 Información de Contacto

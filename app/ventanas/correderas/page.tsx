@@ -64,10 +64,12 @@ export default function VentanasCorrederasPage() {
                             </p>
 
                             <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                                <button className="px-8 py-4 bg-[#f25d21] text-white font-semibold rounded-sm shadow-lg hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group">
+                                <a 
+                                href="/#cotizacion"
+                                className="px-8 py-4 bg-[#f25d21] text-white font-semibold rounded-sm shadow-lg hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group">
                                     Solicitar cotización
                                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </button>
+                                </a>
 
                                 {/* <a
                                     href="/docs/fichaTécnica-RolaPlus.pdf"
