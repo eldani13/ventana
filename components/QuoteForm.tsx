@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
 import { Phone, Mail, MapPin, Clock, CheckCircle2 } from "lucide-react";
+import emailjs from "emailjs-com";
 
 export default function QuoteForm() {
     const { toast } = useToast();
@@ -20,27 +21,31 @@ export default function QuoteForm() {
         message: "",
     });
 
-    const handleChange = (e:any) => {
+    const handleChange = (e: any) => {
         const { id, value } = e.target;
         setFormData((prev) => ({ ...prev, [id]: value }));
     };
 
-    const handleSubmit = async (e:any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         setLoading(true);
 
         try {
-            const { error } = await supabase.from("quotes").insert([
+            // Enviar a EmailJS
+            const result = await emailjs.send(
+                "TU_SERVICE_ID",     // Service ID
+                "TU_TEMPLATE_ID",    // Template ID
                 {
                     name: formData.name,
                     email: formData.email,
                     phone: formData.phone,
                     subject: formData.subject,
-                    comments: formData.message,
+                    message: formData.message,
                 },
-            ]);
+                "TU_PUBLIC_KEY"      // Public Key
+            );
 
-            if (error) throw error;
+            console.log(result.text);
 
             toast({
                 title: "Cotización Enviada",
@@ -55,6 +60,7 @@ export default function QuoteForm() {
                 message: "",
             });
         } catch (error) {
+            console.error(error);
             toast({
                 title: "Error",
                 description: "Hubo un problema al enviar tu cotización. Por favor intenta de nuevo.",
