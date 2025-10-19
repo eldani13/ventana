@@ -230,7 +230,7 @@ export default function QuoteForm() {
                                     <div>
                                         <p className="text-xs text-gray-500 mb-1">Teléfono</p>
                                         <a href="tel:+573008108106" className="text-[#0b72ba] hover:text-[#2b91cf] font-semibold">
-                                            +57 300 8108106
+                                            +57 318 3439252
                                         </a>
                                     </div>
                                 </div>
