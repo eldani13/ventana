@@ -267,7 +267,7 @@ export default function QuoteForm() {
                       href="tel:+573008108106"
                       className="text-[#0b72ba] hover:text-[#2b91cf] font-semibold"
                     >
-                      +57 300 8108106
+                      +57 318 343 9252
                     </a>
                   </div>
                 </div>

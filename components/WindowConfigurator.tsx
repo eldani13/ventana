@@ -22,12 +22,12 @@ const materials = [
 ];
 
 const colors = [
-    { id: "blanco", name: "Blanco", hex: "#FFFFFF", img: "/images-color-windowConfigrator/color-blanco.jpg" },
-    { id: "robleNatural", name: "Roble Natural", img: "/images-color-windowConfigrator/color-robleNatural-1.jpg" },
-    { id: "blancoCrema", name: "Blanco Crema", img: "/images-color-windowConfigrator/color-blancoCrema.jpg" },
-    { id: "robleNogal", name: "Roble Nogal", img: "/images-color-windowConfigrator/color-robleNatural-2.jpg" },
-    { id: "grisPlata", name: "Gris Plata", img: "/images-color-windowConfigrator/color-grisPlata.png" },
-    { id: "robleTruga", name: "Roble Trufa", img: "/images-color-windowConfigrator/color-robleNatural-3.jpg" }
+    { id: "blanco", name: "Blanco", hex: "#FFFFFF", img: "/images-color-windowConfigrator/color-blanco.webp" },
+    { id: "robleNatural", name: "Roble Natural", img: "/images-color-windowConfigrator/color-robleNatural-1.webp" },
+    { id: "blancoCrema", name: "Blanco Crema", img: "/images-color-windowConfigrator/color-blancoCrema.webp" },
+    { id: "robleNogal", name: "Roble Nogal", img: "/images-color-windowConfigrator/color-robleNatural-2.webp" },
+    { id: "grisPlata", name: "Gris Plata", img: "/images-color-windowConfigrator/color-grisPlata.webp" },
+    { id: "robleTruga", name: "Roble Trufa", img: "/images-color-windowConfigrator/color-robleNatural-3.webp" }
 ];
 
 const glassTypes = [

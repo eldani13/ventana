@@ -110,7 +110,7 @@ export default function Footer() {
                     href="tel:+525555555555"
                     className="text-white/80 hover:text-[#f25d21] transition-colors"
                   >
-                    +57 300 399 2055
+                    +57 318 343 9252
                   </a>
                 </div>
               </li>
@@ -119,10 +119,10 @@ export default function Footer() {
                 <div>
                   <p className="font-semibold">Email</p>
                   <a
-                    href="mailto:gerencia@ingeglasstemplados.com"
+                    href="mailto:contacto@nuvowin.com"
                     className="text-white/80 hover:text-[#f25d21] transition-colors"
                   >
-                    gerencia@ingeglasstemplados.com
+                    contacto@nuvowin.com
                   </a>
                 </div>
               </li>
