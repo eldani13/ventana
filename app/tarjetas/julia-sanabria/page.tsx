@@ -113,7 +113,7 @@ export default function JuliaSanabria() {
             </div>
 
             <div className="absolute left-1/2 -bottom-12 -translate-x-1/2 w-[110px] h-[110px] rounded-full border-4 border-white shadow-lg bg-gray-100 flex items-center justify-center overflow-hidden z-10">
-              <CgProfile className="text-gray-400 text-6xl" />
+              <Image src="/Julia.jpeg" alt="Julia" width={120} height={120} />
             </div>
           </div>
 
