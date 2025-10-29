@@ -57,7 +57,7 @@ export default function IngCarlosLafaurieSchiller() {
       "FN:Ing. Carlos Lafaurie Schiller",
       "ORG:NUVOWIN",
       "TITLE:Gerente Comercial",
-      "TEL;TYPE=WORK,VOICE:+573115504794",
+      "TEL;TYPE=WORK,VOICE:+573003992055",
       "EMAIL;TYPE=WORK:gerencia@nuvowin.com",
       "URL:https://nuvowin.com/tarjetas/ing-carlos-lafaurie-schiller",
       "ADR;TYPE=WORK:;;CR 38 #110 - 63 OF 1;Barranquilla;;Colombia",
@@ -130,11 +130,11 @@ export default function IngCarlosLafaurieSchiller() {
 
             <div className="space-y-3 text-left">
               <a
-                href="https://wa.me/573115504794"
+                href="https://wa.me/573003992055"
                 className="flex items-center gap-3 bg-gray-50 p-3 rounded-lg border hover:bg-green-50 transition"
               >
                 <FaWhatsapp className="text-gray-700 text-xl" />
-                <span className="text-sm text-gray-700">+57 311 550 4794</span>
+                <span className="text-sm text-gray-700">+57 300 399 2055</span>
               </a>
 
               <a
