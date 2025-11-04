@@ -21,13 +21,13 @@ export default function Navbar() {
   >("");
 
   useEffect(() => {
-  if (!isOpen) {
-    setVentanasOpen(false);
-    setActiveVentanasSection("");
-    setActivePuertasSection("");
-    setActivePersianasSection("");
-  }
-}, [isOpen]);
+    if (!isOpen) {
+      setVentanasOpen(false);
+      setActiveVentanasSection("");
+      setActivePuertasSection("");
+      setActivePersianasSection("");
+    }
+  }, [isOpen]);
 
 
   return (
@@ -111,10 +111,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link
             href="/"
-            className="text-xl sm:text-2xl font-bold text-slate-800"
+            className="inline-flex items-center gap-4 text-xl sm:text-2xl font-bold text-slate-800"
           >
-            <Image src="/nuvowin-logo.webp" alt="Logo" width={50} height={50} />
+            <Image src="/NUVOWIN-Photoroom.webp" alt="logo_kommerling" width={210} height={210} />
           </Link>
+
 
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             <Link
@@ -166,16 +167,14 @@ export default function Navbar() {
                             }
                             className={
                               idx === 0
-                                ? `px-6 py-3 border-b border-gray-100 text-center ${
-                                    activeVentanasSection === "abatibles"
-                                      ? "bg-gray-200 text-black font-bold"
-                                      : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
-                                  }`
-                                : `px-6 py-3 border-b border-gray-100 text-center ${
-                                    activeVentanasSection === "correderas"
-                                      ? "bg-gray-200 text-black font-bold"
-                                      : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
-                                  }`
+                                ? `px-6 py-3 border-b border-gray-100 text-center ${activeVentanasSection === "abatibles"
+                                  ? "bg-gray-200 text-black font-bold"
+                                  : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
+                                }`
+                                : `px-6 py-3 border-b border-gray-100 text-center ${activeVentanasSection === "correderas"
+                                  ? "bg-gray-200 text-black font-bold"
+                                  : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
+                                }`
                             }
                             style={{ textAlign: "center" }}
                           >
@@ -463,21 +462,19 @@ export default function Navbar() {
                             onFocus={() => setActivePuertasSection(key as any)}
                             className={
                               idx === 0
-                                ? `px-6 py-3 border-b border-gray-100 text-center ${
-                                    activePuertasSection === "calle"
-                                      ? "bg-gray-200 text-black font-bold"
-                                      : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
-                                  }`
-                                : `px-6 py-3 border-b border-gray-100 text-center ${
-                                    (idx === 1 &&
-                                      activePuertasSection === "balconeras") ||
-                                    (idx === 2 &&
-                                      activePuertasSection === "correderas") ||
-                                    (idx === 3 &&
-                                      activePuertasSection === "especiales")
-                                      ? "bg-gray-200 text-black font-bold"
-                                      : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
-                                  }`
+                                ? `px-6 py-3 border-b border-gray-100 text-center ${activePuertasSection === "calle"
+                                  ? "bg-gray-200 text-black font-bold"
+                                  : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
+                                }`
+                                : `px-6 py-3 border-b border-gray-100 text-center ${(idx === 1 &&
+                                  activePuertasSection === "balconeras") ||
+                                  (idx === 2 &&
+                                    activePuertasSection === "correderas") ||
+                                  (idx === 3 &&
+                                    activePuertasSection === "especiales")
+                                  ? "bg-gray-200 text-black font-bold"
+                                  : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
+                                }`
                             }
                             style={{ textAlign: "center" }}
                           >
@@ -884,16 +881,14 @@ export default function Navbar() {
                             }
                             className={
                               idx === 0
-                                ? `px-6 py-3 border-b border-gray-100 text-center ${
-                                    activePersianasSection === "persianas"
-                                      ? "bg-gray-200 text-black font-bold"
-                                      : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
-                                  }`
-                                : `px-6 py-3 border-b border-gray-100 text-center ${
-                                    activePersianasSection === "contraventanas"
-                                      ? "bg-gray-200 text-black font-bold"
-                                      : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
-                                  }`
+                                ? `px-6 py-3 border-b border-gray-100 text-center ${activePersianasSection === "persianas"
+                                  ? "bg-gray-200 text-black font-bold"
+                                  : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
+                                }`
+                                : `px-6 py-3 border-b border-gray-100 text-center ${activePersianasSection === "contraventanas"
+                                  ? "bg-gray-200 text-black font-bold"
+                                  : "text-gray-500 font-semibold hover:bg-gray-100 hover:text-black"
+                                }`
                             }
                             style={{ textAlign: "center" }}
                           >
@@ -1053,9 +1048,8 @@ export default function Navbar() {
         </div>
 
         <div
-          className={`lg:hidden transition-all duration-300 overflow-hidden ${
-            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-          }`}
+          className={`lg:hidden transition-all duration-300 overflow-hidden ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            }`}
         >
           <div className="flex flex-col gap-2 py-4 border-t">
             <Link
@@ -1073,24 +1067,21 @@ export default function Navbar() {
                   setActivePuertasSection("");
                   setActivePersianasSection("");
                 }}
-                className={`flex items-center justify-between w-full text-gray-700 hover:text-blue-600 font-medium px-4 py-3 rounded-md transition-all duration-200 focus:outline-none ${
-                  ventanasOpen ? "bg-blue-50 shadow-sm" : "hover:bg-gray-50"
-                }`}
+                className={`flex items-center justify-between w-full text-gray-700 hover:text-blue-600 font-medium px-4 py-3 rounded-md transition-all duration-200 focus:outline-none ${ventanasOpen ? "bg-blue-50 shadow-sm" : "hover:bg-gray-50"
+                  }`}
                 aria-expanded={ventanasOpen}
               >
                 <span>Ventanas</span>
                 <ChevronDown
-                  className={`h-4 w-4 ml-2 transition-transform duration-300 ${
-                    ventanasOpen ? "rotate-180 text-blue-600" : "text-gray-400"
-                  }`}
+                  className={`h-4 w-4 ml-2 transition-transform duration-300 ${ventanasOpen ? "rotate-180 text-blue-600" : "text-gray-400"
+                    }`}
                 />
               </button>
               <div
-                className={`transition-all duration-300 ease-in-out ${
-                  ventanasOpen
+                className={`transition-all duration-300 ease-in-out ${ventanasOpen
                     ? "max-h-40 opacity-100 py-2"
                     : "max-h-0 opacity-0 py-0"
-                } px-4 `}
+                  } px-4 `}
                 style={{ overflow: "hidden" }}
               >
                 <Link
@@ -1118,28 +1109,25 @@ export default function Navbar() {
                   setVentanasOpen(false);
                   setActivePersianasSection("");
                 }}
-                className={`flex items-center justify-between w-full text-gray-700 hover:text-blue-600 font-medium px-4 py-3 rounded-md transition-all duration-200 focus:outline-none ${
-                  activePuertasSection
+                className={`flex items-center justify-between w-full text-gray-700 hover:text-blue-600 font-medium px-4 py-3 rounded-md transition-all duration-200 focus:outline-none ${activePuertasSection
                     ? "bg-blue-50 shadow-sm"
                     : "hover:bg-gray-50"
-                }`}
+                  }`}
                 aria-expanded={activePuertasSection ? "true" : "false"}
               >
                 <span>Puertas</span>
                 <ChevronDown
-                  className={`h-4 w-4 ml-2 transition-transform duration-300 ${
-                    activePuertasSection
+                  className={`h-4 w-4 ml-2 transition-transform duration-300 ${activePuertasSection
                       ? "rotate-180 text-blue-600"
                       : "text-gray-400"
-                  }`}
+                    }`}
                 />
               </button>
               <div
-                className={`transition-all duration-300 ease-in-out ${
-                  activePuertasSection
+                className={`transition-all duration-300 ease-in-out ${activePuertasSection
                     ? "max-h-52 opacity-100 py-2"
                     : "max-h-0 opacity-0 py-0"
-                } px-4 `}
+                  } px-4 `}
                 style={{ overflow: "hidden" }}
               >
                 <Link
@@ -1179,28 +1167,25 @@ export default function Navbar() {
                   setVentanasOpen(false);
                   setActivePuertasSection("");
                 }}
-                className={`flex items-center justify-between w-full text-gray-700 hover:text-blue-600 font-medium px-4 py-3 rounded-md transition-all duration-200 focus:outline-none ${
-                  activePersianasSection
+                className={`flex items-center justify-between w-full text-gray-700 hover:text-blue-600 font-medium px-4 py-3 rounded-md transition-all duration-200 focus:outline-none ${activePersianasSection
                     ? "bg-blue-50 shadow-sm"
                     : "hover:bg-gray-50"
-                }`}
+                  }`}
                 aria-expanded={activePersianasSection ? "true" : "false"}
               >
                 <span>Persianas</span>
                 <ChevronDown
-                  className={`h-4 w-4 ml-2 transition-transform duration-300 ${
-                    activePersianasSection
+                  className={`h-4 w-4 ml-2 transition-transform duration-300 ${activePersianasSection
                       ? "rotate-180 text-blue-600"
                       : "text-gray-400"
-                  }`}
+                    }`}
                 />
               </button>
               <div
-                className={`transition-all duration-300 ease-in-out ${
-                  activePersianasSection
+                className={`transition-all duration-300 ease-in-out ${activePersianasSection
                     ? "max-h-32 opacity-100 py-2"
                     : "max-h-0 opacity-0 py-0"
-                } px-4 `}
+                  } px-4 `}
                 style={{ overflow: "hidden" }}
               >
                 <Link
