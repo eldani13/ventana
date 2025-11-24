@@ -7,15 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin, Clock, CheckCircle2 } from "lucide-react";
-import emailjs from "emailjs-com";
-import { createClient } from "@supabase/supabase-js";
-
-// Initialize Supabase client using public environment variables.
-// Ensure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are defined in your environment.
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
-);
+import emailjs from "@emailjs/browser";
 
 export default function QuoteForm() {
   const { toast } = useToast();
@@ -38,17 +30,26 @@ export default function QuoteForm() {
     setLoading(true);
 
     try {
-      const { error } = await supabase.from("quotes").insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: formData.subject,
-          comments: formData.message,
-        },
-      ]);
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        reply_to: formData.email, 
+        to_email: "contacto@nuvowin.com",
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+      };
 
-      if (error) throw error;
+      if (!templateParams.to_email) {
+        throw new Error("Destinatario de correo no configurado para EmailJS");
+      }
+
+      await emailjs.send(
+        "service_atlfi6s",
+        "template_fj6wc5t", 
+        templateParams,
+        "zlSXEOPTfJGXsvtMT" 
+      );
 
       toast({
         title: "Cotización Enviada",
@@ -64,6 +65,7 @@ export default function QuoteForm() {
         message: "",
       });
     } catch (error) {
+      console.error(error);
       toast({
         title: "Error",
         description:
@@ -265,7 +267,7 @@ export default function QuoteForm() {
                       href="tel:+573008108106"
                       className="text-[#0b72ba] hover:text-[#2b91cf] font-semibold"
                     >
-                      +57 300 8108106
+                      +57 318 343 9252
                     </a>
                   </div>
                 </div>

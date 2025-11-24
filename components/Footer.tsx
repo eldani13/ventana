@@ -1,5 +1,5 @@
-import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -8,8 +8,7 @@ export default function Footer() {
         {/* MARCA Y DESCRIPCIÓN */}
         <div className="text-center md:text-left mb-12">
           <h3 className="inline-block bg-white text-2xl font-bold mb-3 text-[#0b72ba] px-3 rounded-sm">
-            {/* NUVO<span className="text-[#f25d21]">WIN</span> by <span className="text-[#0078C0]">Kömmerling®</span> */}
-            NUVOWIN<span className="text-[#f25d21]"> by</span> <span className="text-[#0078C0]">Kömmerling®</span>
+            NUVO<span className="text-[#f25d21]">WIN</span>
           </h3>
           <p className="text-white/80 text-sm leading-relaxed max-w-md mx-auto md:mx-0">
             Expertos en ventanas de PVC y aluminio. <br />
@@ -108,7 +107,7 @@ export default function Footer() {
                 <div>
                   <p className="font-semibold">Teléfono</p>
                   <a
-                    href="tel:+573183439252"
+                    href="tel:+525555555555"
                     className="text-white/80 hover:text-[#f25d21] transition-colors"
                   >
                     +57 318 343 9252

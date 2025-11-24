@@ -45,7 +45,7 @@ const products = [
     },
     {
         id: "PREMIDOOR76",
-        name: "Ventanas PremiDoor76",
+        name: "Ventanas PREMIDOOR76",
         description: "Sistema de puerta corredera de alto rendimiento de 179 mm, con excelente aislamiento térmico, estructura robusta, gran capacidad de acristalamiento, protección antirrobo y opciones sostenibles y decorativas.",
         image: productPremidoor,
         features: [
